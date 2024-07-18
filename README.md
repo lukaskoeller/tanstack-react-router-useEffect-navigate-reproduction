@@ -21,7 +21,7 @@ App.tsx:5 http://localhost:5173/?id=a1337b00c99
 ```
 
 ## Actual
-The app correctly navigates to `/about`, then the `useEffect` (`About.tsx:8-16`) correctly runs.
+The app correctly navigates to `/about`, then the `useEffect` ([`About.tsx:8-16`](https://github.com/lukaskoeller/tanstack-react-router-useEffect-navigate-reproduction/blob/0871b04aa1222660fc5065bcb73fca6beaaba497/src/About.tsx#L8)) correctly runs.
 After that it navigates back to `/` with the `id` query param attached
 
 ## Expected
