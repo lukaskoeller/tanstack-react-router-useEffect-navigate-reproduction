@@ -1,31 +1,29 @@
-# React + TypeScript + Vite
+# `@tanstack/react-router` navigate in useEffect bug
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Reproduction
 
-Currently, two official plugins are available:
+1. Install dependencies via `pnpm i`
+2. Start the dev server via `pnpm dev`
+3. Navigate to `/about` via the "About" link
+4. Have a look at the console which logs the `location.href`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+http://localhost:5173/
+App.tsx:5 http://localhost:5173/
+App.tsx:5 http://localhost:5173/about
+App.tsx:5 http://localhost:5173/about
+About.tsx:9 useEffect
+About.tsx:9 useEffect
+App.tsx:5 http://localhost:5173/about
+App.tsx:5 http://localhost:5173/about
+App.tsx:5 http://localhost:5173/?id=a1337b00c99
+App.tsx:5 http://localhost:5173/?id=a1337b00c99
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# tanstack-react-router-useEffect-navigate-reproduction
+## Actual
+The app correctly navigates to `/about`, then the `useEffect` (`About.tsx:8-16`) correctly runs.
+After that it navigates back to `/` with the `id` query param attached
+
+## Expected
+Instead I would expect the `id` query param to be attached to the `/about` page. Thus,
+the latest log should be `http://localhost:5173/about?id=a1337b00c99` instead.
