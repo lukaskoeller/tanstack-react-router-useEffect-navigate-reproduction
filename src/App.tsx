@@ -1,4 +1,5 @@
 import { Link, Outlet } from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import './App.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         </li>
       </ul>
       <Outlet />
+      <TanStackRouterDevtools />
     </>
   )
 }
