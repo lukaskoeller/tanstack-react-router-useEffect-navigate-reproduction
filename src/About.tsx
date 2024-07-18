@@ -1,9 +1,9 @@
 import { useNavigate } from "@tanstack/react-router";
 import { FC, useEffect } from "react";
-import { indexRoute } from "./router";
+import { aboutRoute } from "./router";
 
 export const About: FC = () => {
-    const navigate = useNavigate({ from: indexRoute.fullPath });
+    const navigate = useNavigate({ from: aboutRoute.fullPath });
 
     useEffect(() => {
         console.log('useEffect')
