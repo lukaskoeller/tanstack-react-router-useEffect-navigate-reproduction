@@ -1,5 +1,7 @@
 # `@tanstack/react-router` navigate in useEffect bug
 
+**IMPORTANT**: This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)
+
 ## Reproduction
 
 1. Install dependencies via `pnpm i`
