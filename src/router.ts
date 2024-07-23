@@ -2,6 +2,8 @@ import { createRootRoute, createRoute, createRouter } from "@tanstack/react-rout
 import App from "./App";
 import { Home } from "./Home";
 import { About } from "./About";
+import { News } from "./News";
+import { number, object, string } from "zod";
 
 const rootRoute = createRootRoute({
   component: App,
@@ -19,6 +21,24 @@ export const aboutRoute = createRoute({
   component: About,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute])
+export const newsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/news",
+  loader: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 1000);
+    });
+  },
+  validateSearch: object({
+    newsId: number().optional(),
+    title: string().optional(),
+    content: string().optional(),
+  }),
+  component: News,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, newsRoute])
 
 export const router = createRouter({ routeTree })

@@ -16,6 +16,9 @@ function App() {
         <li>
           <Link to="/about">About</Link>
         </li>
+        <li>
+          <Link to="/news">News</Link>
+        </li>
       </ul>
       <Outlet />
       <TanStackRouterDevtools />
