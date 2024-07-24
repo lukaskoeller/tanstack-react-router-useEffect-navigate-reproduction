@@ -3,7 +3,7 @@ import App from "./App";
 import { Home } from "./Home";
 import { About } from "./About";
 import { News } from "./News";
-import { number, object, string } from "zod";
+import { number, object } from "zod";
 
 const rootRoute = createRootRoute({
   component: App,
@@ -24,17 +24,16 @@ export const aboutRoute = createRoute({
 export const newsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/news",
-  loader: async () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 1000);
-    });
-  },
+  // loader: async () => {
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       resolve(true);
+  //     }, 1000);
+  //   });
+  // },
   validateSearch: object({
-    newsId: number().optional(),
-    title: string().optional(),
-    content: string().optional(),
+    firstId: number().optional(),
+    secondId: number().optional(),
   }),
   component: News,
 });
