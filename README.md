@@ -1,8 +1,23 @@
 # `@tanstack/react-router` navigate in useEffect bug
 
-**IMPORTANT**: This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)
+## Reproduction #1
 
-## Reproduction
+1. Install dependencies via `pnpm i`
+2. Start the dev server via `pnpm dev`
+3. Open the console.
+4. Navigate to `/news`
+5. Only `?secondId=42` is applied. Also see how `old` is empty for the `navigate:secondId`.
+
+### Expected
+Both params are applied, thus `?firstId=1337&secondId=42`.
+
+### Actual
+Only `?secondId=42` is applied.
+
+![@tanstack/react-router@1.45.8 is missing old params (bug)](./tanstack-router-useEffect-navigate-bug.png)
+
+## Reproduction #2
+**IMPORTANT**: This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)
 
 1. Install dependencies via `pnpm i`
 2. Start the dev server via `pnpm dev`
