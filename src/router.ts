@@ -3,7 +3,8 @@ import App from "./App";
 import { Home } from "./Home";
 import { About } from "./About";
 import { News } from "./News";
-import { number, object } from "zod";
+import { number, object, string } from "zod";
+import { Repro3 } from "./Repro3";
 
 const rootRoute = createRootRoute({
   component: App,
@@ -38,6 +39,16 @@ export const newsRoute = createRoute({
   component: News,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, newsRoute])
+export const repro3Route = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/repro3",
+  validateSearch: object({
+    param1: number().optional().default(7),
+    param2: string().optional().default("defaultValue1"),
+  }),
+  component: Repro3,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, newsRoute, repro3Route])
 
 export const router = createRouter({ routeTree })
