@@ -17,6 +17,17 @@ Only `?secondId=42` is applied.
 ![@tanstack/react-router@1.45.8 is missing old params (bug)](./tanstack-router-useEffect-navigate-bug.png)
 
 ## Reproduction #2
+
+1. Install dependencies via `pnpm i`
+2. Start the dev server via `pnpm dev`
+3. Open the console.
+4. Navigate to from `/` to `/repro3` via the "Repro #3"
+5. The console logs the default params `{ "param1": 7, "param2": "defaultValue1" }`
+6. The params are not attached to the URL (expected: they are attached to the URL)
+7. Do a reload via CMD + R
+8. Now, search params are attached to the URL
+
+## Reproduction #3
 **IMPORTANT**: This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)
 
 1. Install dependencies via `pnpm i`
