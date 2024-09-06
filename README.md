@@ -37,7 +37,7 @@ Github Issue: https://github.com/TanStack/router/issues/1184
 ## Reproduction #3 - Router navigates back to "from" page when running `useEffect`
 
 > [!NOTE]
-> This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)**
+> This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)
 
 1. Install dependencies via `pnpm i`
 2. Start the dev server via `pnpm dev`
