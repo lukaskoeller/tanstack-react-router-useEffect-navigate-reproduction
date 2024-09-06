@@ -2,7 +2,10 @@
 
 ## Reproduction #1 - Second `navigate` does not have updated params from first `navigate` in `old` parameter. Thus, overwrites params from first `navigate`
 
-Github Issue: 
+> [!NOTE]
+> This bug was solved with [v1.51.7](https://github.com/TanStack/router/releases/tag/v1.51.7)
+
+Github Issue: https://github.com/TanStack/router/issues/2028#issuecomment-2322927811
 
 1. Install dependencies via `pnpm i`
 2. Start the dev server via `pnpm dev`
@@ -33,7 +36,8 @@ Github Issue: https://github.com/TanStack/router/issues/1184
 
 ## Reproduction #3 - Router navigates back to "from" page when running `useEffect`
 
-**IMPORTANT: This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)**
+> [!NOTE]
+> This bug was fixed with the release of [v1.45.5](https://github.com/TanStack/router/releases/tag/v1.45.5)**
 
 1. Install dependencies via `pnpm i`
 2. Start the dev server via `pnpm dev`
